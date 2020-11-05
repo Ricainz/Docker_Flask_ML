@@ -1,7 +1,10 @@
 from flask import Flask, render_template, url_for, request, jsonify
 import random
+import joblib
 
 app = Flask(__name__)
+
+model = joblib.load('model.sav')
 
 def rand():
     result = random.sample([-1, 0, 1],  1)
@@ -14,7 +17,9 @@ def index():
 @app.route('/get_result', methods=['POST'])
 def result():
     if request.method == 'POST':
-        res = rand()
+        data = request.json
+        res = model.predict([data['Sentence']])
+        print(res)
         if res == -1:
             return jsonify('negative')
         if res == 0:

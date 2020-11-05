@@ -30,13 +30,13 @@
                 data : JSON.stringify({Sentence:$('#Analysis').val()}),
                 success : function (response) {
                     if (response === 'negative') {
-                        $('#result').append('<center><h3>negative sentence</h3></center>')
+                        $('#result').html('<center><h3>negative sentence</h3></center>')
                     }
                     if (response === 'neutral') {
-                        $('#result').append('<center><h3>neutral sentence</h3></center>')
+                        $('#result').html('<center><h3>neutral sentence</h3></center>')
                     }
                     if (response === 'positive') {
-                        $('#result').append('<center><h3>positive sentence</h3></center>')
+                        $('#result').html('<center><h3>positive sentence</h3></center>')
                     }                   
                 }
             });
