@@ -4,11 +4,9 @@ import joblib
 
 app = Flask(__name__)
 
-model = joblib.load('model.sav')
+model = joblib.load('model.pkl.compressed')
 
-def rand():
-    result = random.sample([-1, 0, 1],  1)
-    return result[0]
+
 
 @app.route('/')
 def index():
@@ -19,7 +17,7 @@ def result():
     if request.method == 'POST':
         data = request.json
         res = model.predict([data['Sentence']])
-        print(res)
+       
         if res == -1:
             return jsonify('negative')
         if res == 0:
