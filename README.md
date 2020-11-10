@@ -17,3 +17,5 @@ Trello link: https://trello.com/b/f3iraTSd/data-engineering-project
 
 port:5000
 hostname: 0.0.0.0
+
+Run "docker-compose up" in the the invite command, in the project folder.
